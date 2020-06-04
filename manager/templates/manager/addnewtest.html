@@ -1,0 +1,74 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+
+<body>
+ <nav class="navbar navbar-light" style="background-color: #135375;">
+    <div class="container-fluid">
+        <h1 class="text-white">Pentagon Water Consultants</h1>
+        <form class="form-inline pt-3">
+            <a class="btn btn-outline-light mr-sm-2  " href="loggedout">Sing Out</a>
+        </form>
+    </div>
+</nav>
+
+
+
+
+<div class="container"  style="text-align: center; max-height: available; padding-bottom: 200px; padding-right: 70px">
+    <h2 style="position: center;">add new test</h2>
+    <form action="testadded" method="post">
+    {% csrf_token %}
+        <div id="formContent" style="margin: 60px; padding: 20px; max-width: 1000px;" >
+            <div class="input-group mb-3">
+                <a href="loggedin" style="padding-bottom: 20px">Go Back To your Dashboard</a>
+            </div>
+            <div class="input-group mb-3">
+                {% if err_msg_addtest %}
+                    <p style="color: red; text-align: center;">{{ err_msg_addtest }}</p>
+                {% endif %}
+                {% if succ_msg %}
+                    <p style="color: green;">{{ succ_msg }}</p>
+                {% endif %}
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+              </div>
+              <input type="text" name="fname" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Phone Number</span>
+              </div>
+              <input type="number" name="phone" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Confirm Phone Number</span>
+              </div>
+              <input type="number" name="cphone" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Place</span>
+              </div>
+              <input type="text" name="place" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <div class="container" style="padding-right:70px; ">
+                <input type="submit" style="padding-right: 70px;" class="btn btn-outline-info btn-lg btn-block" value="Add Test Data" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer class="py-4" style="background-color: #135375; position: fixed">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+    </div>
+</footer>
+</body>

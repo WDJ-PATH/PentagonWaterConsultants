@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Pentagon Water Consultants</title>
+<head>
+    <meta name="Official Site of Pentagon Water Consultants"
+      content="Pentagon Water Consultancy Consultants Solution">
+</head>
+<nav class="navbar navbar-light" style="background-color: #135375;">
+    <div class="container-fluid">
+        <a href="/"><h1 class="text-white">Pentagon Water Consultants</h1></a>
+
+        <form class="form-inline pt-3">
+            <a class="btn btn-outline-light mr-sm-2  " href="login">Login</a>
+            <a class="btn btn-outline-light" href="register">Sign Up</a>
+        </form>
+    </div>
+</nav>
+{% load static %}
+<link href="{% static 'styles/home.css' %}" rel="stylesheet">
+<body>
+  <!-- Header - set the background image for the header in the line below -->
+  <header class="py-5 bg-image-full" style="background-image: url('{% static "images/bg-home.jpg" %}');">
+    <img class="img-fluid d-block mx-auto" height="200" width="450" src="{% static 'images/PWC_logo.png' %}" alt="">
+  </header>
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1>What we do?</h1>
+      <p class="lead">Consultancy services for water and waste water treatment.</p>
+        <ul>
+          <li>Whole house water treatment systems to remove Iron, Suspended solids and colour.</li>
+            <li>Waste water treatment plans for commercial buildings, residential complex & hospitals.</li>
+            <li>Rain water harvesting and recharge of sources.</li>
+            <li>Water supply project conceptualization.</li>
+        </ul>
+    </div>
+  </section>
+
+  <!-- Image Section - set the background image for the header in the line below -->
+  <section class="py-5 bg-image-full" style="background-image: url('{% static "images/bg-home.jpg" %}');">
+    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+    <div style="height: 200px;"></div>
+  </section>
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1>Contact Information</h1>
+      <p class="lead">Pentagon Water Consultants, Near Passport Sevakendra Payyanur, 670307, Kerala, India</p>
+      <ul>
+          <li>Email : pentagonwaters@gmail.com</li>
+          <li>Phone : +91 8086654684</li>
+          <li>Consultant : Raghuprasad PK, M.E(Environmental Engineering)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Former Chief Engineer, Kerala Water Authority.</li>
+      </ul>
+    </div>
+  </section>
+
+    <footer class="py-4" style="position: fixed; background-color: #135375">
+        <div class="container" style="position: absolute;">
+            <p class="text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    </footer>
+</body>

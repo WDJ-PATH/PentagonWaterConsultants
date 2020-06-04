@@ -1,0 +1,46 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+
+<body>
+     <nav class="navbar navbar-light" style="background-color: #135375;">
+        <div class="container-fluid">
+            <h1 class="text-white">Pentagon Water Consultants</h1>
+        </div>
+    </nav>
+
+    <div class="container"  style="text-align: center; max-height: available; padding-right: 70px;">
+        <h2 style="position: center;">YOUR TESTS BY LATEST DATE & TIME</h2>
+
+        <div id="formContent" style="margin-left: 60px; margin-bottom: 40px; padding: 20px; max-width: 1000px;" >
+            <p style="margin-top: 30px"><a href="../loggedin">Go Back To your Dashboard</a></p>
+            <div class="input-group mb-3">
+                {% if err_msg_mytest %}
+                    <p style="color: red;">{{ err_msg_mytest }}</p>
+                {% endif %}
+                {% if succ_msg_mytest %}
+                    <p style="color: green;">{{ succ_msg_mytest }}</p>
+                {% endif %}
+            </div>
+            <div class="input-group mb-3">
+                {% if tests %}
+                    {% for t in tests %}
+                    <div class="formContent" style="margin: 20px; padding: 3px; max-width: 400px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
+                        <p>Test ID : {{ t.id }} <br> Test Submission Date : {{ t.addeddate }}<br><a href="{{t.id}}/viewtestdetails">View Test Details</a></p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4" style="background-color: #135375; position: fixed; margin-top: 300px;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    </footer>
+</body>

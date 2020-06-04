@@ -1,0 +1,52 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+<title>Pentagon Water Consultants</title>
+<body background="{% static 'images/bg-home.jpg' %}", style="height: 100vh;">
+     <nav class="navbar navbar-light" style="background-color: #135375;">
+        <div class="container-fluid">
+            <a href="/"><h1 class="text-white">Pentagon Water Consultants</h1></a>
+
+            <form class="form-inline ml-auto pt-3 pr-2">
+                <p class="pt-2" style="color: white; font-size: 13px">Don't have an account ? Create One </p>
+            </form>
+            <form class="form-inline pt-3">
+                <a class="btn btn-outline-light mr-sm-2  " href="register">Register</a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="reg-container">
+        <div class="wrapper fadeInDown">
+          <div id="formContent" style="margin-bottom: 300px">
+            <h2>Login To Your Account</h2>
+            <!-- Login Form -->
+            <form method="post" action="loggedin" class="pt-3">
+                {% csrf_token %}
+                {% if err_msg_login %}
+                    <p style="color: red;">{{ err_msg_login }}</p>
+                {% endif %}
+              <input type="text" name="email" class="fadeIn second" name="login" placeholder="Enter Email" autocomplete="off" required/>
+              <input type="password" name="pass" class="fadeIn third" name="login" placeholder="Enter Password" required/>
+                <div id="formFooter">
+                    <p class="fadeIn third" style="font-size: 14px;"><a href="passwordreset">Forgot Your Password? Reset It.</a></p>
+                   <input type="submit" class="fadeIn fourth" value="Login">
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4" style="background-color: #135375;position: fixed;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    <!-- /.container -->
+    </footer>
+
+</body>

@@ -1,0 +1,68 @@
+.py-5 {
+    opacity: 0.7;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+input::-webkit-input-placeholder { color: #999999;}
+input:-moz-placeholder { color: #999999;}
+input::-moz-placeholder { color: #999999;}
+input:-ms-input-placeholder { color: #999999;}
+
+textarea::-webkit-input-placeholder { color: #999999;}
+textarea:-moz-placeholder { color: #999999;}
+textarea::-moz-placeholder { color: #999999;}
+textarea:-ms-input-placeholder { color: #999999;}
+.reg-container {
+    height: 500px;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-container-colour {
+    background-color: white;
+  width: 100%;
+  height: 100%;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5rem;            /* Footer height */
+}
+
+.container {
+    margin-top: 80px;
+    margin-bottom: 160px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px;
+  color: #616161;
+}
+
+.flex-container {
+     display: flex;
+    margin-top: 110px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    opacity: 90%;
+}
+

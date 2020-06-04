@@ -1,0 +1,63 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+ <nav class="navbar navbar-light" style="background-color: #135375;">
+    <div class="container-fluid">
+        <a href="/"><h1 class="text-white">Pentagon Water Consultants</h1></a>
+
+        <form class="form-inline ml-auto pt-3 pr-2">
+            <p class="pt-2" style="color: white; font-size: 13px">Already Have an account ? Login </p>
+        </form>
+        <form class="form-inline pt-3">
+            <a class="btn btn-outline-light mr-sm-2  " href="login">Login</a>
+        </form>
+    </div>
+</nav>
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+
+<title>Pentagon Water Consultants</title>
+<body background="{% static 'images/bg-home.jpg' %}">
+    <!-- content block starts here -->
+    <div class="reg-container" style="padding-top: 70px; margin-bottom: 80px;">
+        <div class="wrapper fadeInDown">
+          <div id="formContent" >
+          <h2>Create User Account</h2>
+            <!-- Login Form -->
+            <form method="post" action="reg" class="pt-3">
+                {% csrf_token %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: green; padding-right: 40px;font-size: 14px;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% if err_msg %}
+                    <p style="color: red">{{ err_msg }}</p>
+                {% endif %}
+                <p style="text-align: center; font-size:12px; color: darkred; padding-left:40px; padding-right: 40px;">IMPORTANT: Please provide the MOBILE NUMBER given during test water submission.</p>
+                <input type="text" name="email" class="fadeIn first" placeholder="Enter Your Email" autocomplete="off" required/>
+                <input type="text" name="firstname" class="fadeIn second" placeholder="Enter Your First Name" autocomplete="off" required/>
+                <input type="text" name="lastname" class="fadeIn second" placeholder="Enter Your Last Name" autocomplete="off" required/>
+                <input type="password" name="pass" class="fadeIn third" placeholder="Enter Password" required/>
+                <input type="password" name="cpw" class="fadeIn third" placeholder="Enter Password Again" required/>
+                <input type="number" name="phone" class="fadeIn third" placeholder="Enter Mobile Number" required/>
+                <textarea type="text" name="address" rows="4" class="fadeIn third" cols="33" placeholder="Enter Your Address" required></textarea>
+                <div id="formFooter" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
+                   <input type="submit" class="fadeIn fourth" value="Sign Up">
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+ <!-- content block ends here -->
+<footer class="py-4" style="background-color: #135375; position: relative;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    <!-- /.container -->
+    </footer>
+
+</body>

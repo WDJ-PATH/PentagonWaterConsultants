@@ -1,0 +1,55 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+<body background="{% static 'images/bg-home.jpg' %}", style="height: 100vh;">
+     <nav class="navbar navbar-light" style="background-color: #135375;">
+        <div class="container-fluid">
+            <h1 class="text-white">Pentagon Water Consultants</h1>
+
+            <form class="form-inline ml-auto pt-3 pr-2">
+                <p class="pt-2" style="color: white; font-size: 13px">Reset Complete? Login here</p>
+            </form>
+            <form class="form-inline pt-3">
+                <a class="btn btn-outline-light mr-sm-2  " href="login">Login</a>
+            </form>
+        </div>
+    </nav>
+
+
+        <div class="wrapper fadeInDown" style="padding-bottom: 300px">
+          <div id="formContent" >
+            <h2>Reset Your password</h2>
+            <!-- Login Form -->
+            <form method="post" action="passwordreset" class="pt-3">
+                {% csrf_token %}
+                {% if succ_msg_reset%}
+                    <p style="color: green;">{{ succ_msg_reset }}</p>
+                {% endif %}
+                {% if err_msg_reset %}
+                    <p style="color: red;">{{ err_msg_reset }}</p>
+                {% endif %}
+              <p style="text-align: center; font-size:12px; color: darkred; padding-left:40px; padding-right: 40px;">IMPORTANT: Don't share your security code with anyone.</p>
+              <input type="text" name="email" class="fadeIn first" placeholder="Enter Your Email" autocomplete="off" required/>
+              <input type="password" name="securitycode" class="fadeIn first" placeholder="Enter Your Security Code" autocomplete="off" required/>
+              <input type="password" name="pass" class="fadeIn second" placeholder="Enter New Password" autocomplete="off" required/>
+              <input type="password" name="cpw" class="fadeIn third" placeholder="Enter Password Again" required/>
+                <div id="formFooter" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
+                   <input type="submit" class="fadeIn fourth" value="Reset">
+                </div>
+            </form>
+            </div>
+        </div>
+
+
+    <footer class="py-4" style="background-color: #135375; position: fixed;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    <!-- /.container -->
+    </footer>
+
+</body>

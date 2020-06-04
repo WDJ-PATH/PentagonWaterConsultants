@@ -1,0 +1,37 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+ <nav class="navbar navbar-light" style="background-color: #135375;">
+    <div class="container-fluid">
+        <h1 class="text-white">Pentagon Water Consultants</h1>
+
+        <form class="form-inline ml-auto pt-3 pr-2">
+            <p class="pt-2" style="color: white; font-size: 13px">Already Have a manager account ? Login </p>
+        </form>
+        <form class="form-inline pt-3">
+            <a class="btn btn-outline-light mr-sm-2  " href="login">Login</a>
+        </form>
+    </div>
+</nav>
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+
+
+<body background="{% static 'images/bg-home.jpg' %}">
+
+<!-- CONTENT BLOCK-->
+{% block content %}
+
+{% endblock %}
+<!-- END BLOCK-->
+<footer class="py-4 style="background-color: #135375; " style="background-color: #135375;>
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    <!-- /.container -->
+    </footer>
+</body>

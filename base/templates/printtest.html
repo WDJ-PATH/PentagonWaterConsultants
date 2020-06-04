@@ -1,0 +1,74 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+
+<body>
+     <nav class="navbar navbar-light" style="background-color: #135375;">
+        <div class="container-fluid">
+            <h1 class="text-white">Pentagon Water Consultants</h1>
+
+        </div>
+    </nav>
+    <div class="container"  style="text-align: center; padding-bottom: 400px; padding-right: 70px">
+        <h2 style="position: center;">Print Test</h2>
+        <p style="position: center; color: gray; font-size: 14px;">Test ID :{{ testob.id }}<br> Test Submission Date: {{ testob.addeddate }}<br> User Name : {{ testob.user.first_name }}</p>
+        <div id="formContent" style="margin-top: 70px; margin-right: 70px; margin-left: 70px; margin-bottom: 100px; padding: 20px; max-width: 1000px;">
+            <div class="input-group mb-3">
+                <a href="../loggedin" style="padding-bottom: 20px; padding-right: 10px">Go Back To your Dashboard</a><p style="color: gray">|</p>
+                <a href="printdata" target="_blank" style="padding-left: 10px; margin-right: 10px;">Print Test Data</a>
+            </div>
+            <p style="text-align: center; color: gray;">Test Details :</p>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Colour</span>
+              </div>
+              <input type="text" name="colour" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.colour }}" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Smell</span>
+              </div>
+              <input type="text" name="smell" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.smell }}" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">pH (Acceptable limit : 6.5-8.5)</span>
+              </div>
+              <input type="number" name="ph" step="0.0001" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.ph }}" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">TDS (Acceptable limit : 500)</span>
+              </div>
+              <input type="number" name="tds" step="0.0001" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.tds }}" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Iron (Acceptable limit : 0.3)</span>
+              </div>
+              <input type="number" name="iron" step="0.0001" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.iron }}" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Hardness (Acceptable limit : 200)</span>
+              </div>
+              <input type="number" name="hardness" step="0.0001" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.hardness }}" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Remarks</span>
+              </div>
+                <textarea type="text" name="remarks" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.remarks }}" disabled></textarea>
+            </div>
+        </div>
+    </div>
+    <footer class="py-4" style="background-color: #135375; position: fixed;">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+    </div>
+    </footer>
+</body>
