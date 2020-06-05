@@ -19,15 +19,32 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ## Features
 
+### User Side
+
+* Register account
+* Reset Password
+* View all their tests
+* View specific test details
+* Download unofficial pdf of test details
+* View enquiry information
+
+**User Interface**
+
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_login.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_register.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
+
+
 ### Manager Side
 
+* Register account
 * Search users and their tests
 * Add new tests
 * Update test details
 * Ban a user
-* Print test details as PDF
+* Download test details as PDF
 
-**Images**
+**User Interface**
 
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_login.png)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_register.png)
