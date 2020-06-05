@@ -1,6 +1,7 @@
 # Pentagon Water Consultants - Website
 A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &amp; Water Supply Consultancy Services
 
+
 ## Tools & Packages Used
 
 ![](https://img.shields.io/badge/1.-python--v3.6-blue)
@@ -17,6 +18,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 ![](https://img.shields.io/badge/3.-Bootstrap--v4.5.0-success)
 ![](https://img.shields.io/badge/4.-pyCharmIDE-inactive)
 
+
 ## Features
 
 ### User Side
@@ -28,16 +30,6 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 * Download unofficial pdf of test details
 * View enquiry information
 
-**User Interface :**
-
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_login.png)
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_register.png)
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_dashboard.png)
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_testpage.png)
-![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_PrintTest.gif)
-
 ### Manager Side
 
 * Register account
@@ -47,7 +39,20 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 * Ban a user
 * Download test details as PDF
 
-**User Interface :**
+
+## User Interface
+
+**User :**
+
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_login.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_register.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_dashboard.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_testpage.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_PrintTest.gif)
+
+**Manager :**
 
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_login.png)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_register.png)
