@@ -28,7 +28,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 2. Reset Password
 3. View all their tests
 4. View specific test details
-5. Download unofficial pdf of test details
+5. Download unofficial PDF of test details
 6. View enquiry information
 
 ### Manager Side
