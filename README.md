@@ -1,6 +1,7 @@
 # Pentagon Water Consultants - Website
 A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &amp; Water Supply Consultancy Services
 
+**Want to report a bug? Raise an issue on this repo.**
 
 ## Tools & Packages Used
 
@@ -65,5 +66,5 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ***
 <p align="center">
-    Made with :heart: | All rights reserved. | If bugs exist, raise an issue on github.
+    Made with :heart: | All rights reserved.
 </p>
