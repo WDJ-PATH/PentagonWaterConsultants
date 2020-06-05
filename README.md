@@ -16,3 +16,18 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 ![](https://img.shields.io/badge/2.-CSS-blue)
 ![](https://img.shields.io/badge/3.-Bootstrap--v4.5.0-success)
 ![](https://img.shields.io/badge/4.-pyCharmIDE-inactive)
+
+## Features
+
+### Manager Side
+
+* Search users and their tests
+* Add new tests
+* Update test details
+* Ban a user
+* Print test details as PDF
+
+**Images**
+
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_login.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_register.png)
