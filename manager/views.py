@@ -99,22 +99,25 @@ def manager_login(request):
             'err_msg_login': "login required",
         })
 
-    # flag variable for user name and and password
-    fn, fp = 0, 0
-    for manager in Manager_Acc.objects.all():
-        if manager.username == uname:
-            fn = 1
-            if manager.passwd == pwd:
-                fp = 1
+    if len(Manager_Acc.objects.all()) > 0:
+        # flag variable for user name and and password
+        fn, fp = 0, 0
+        for manager in Manager_Acc.objects.all():
+            if manager.username == uname:
+                fn = 1
+                if manager.passwd == pwd:
+                    fp = 1
 
-        if fp == 0:
-            error_message = "Password Incorrect. Try again."
-        elif fn == 0:
-            error_message = "Username Incorrect. Try again."
-        else :
-            request.session['manager_id'] = manager.id
-            request.session['manager_uname'] = manager.username
-            return render(request, "manager/manager_ui.html", {'m_fname': manager.firstname})
+            if fp == 0:
+                error_message = "Password Incorrect. Try again."
+            elif fn == 0:
+                error_message = "Username Incorrect. Try again."
+            else :
+                request.session['manager_id'] = manager.id
+                request.session['manager_uname'] = manager.username
+                return render(request, "manager/manager_ui.html", {'m_fname': manager.firstname})
+    else:
+        error_message = "Manager account does not exist."
 
     return render(request, "manager/m_login.html", {'err_msg_login': error_message })
 

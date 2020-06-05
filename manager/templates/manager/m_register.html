@@ -32,7 +32,7 @@
                 {% csrf_token %}
                 <ul class="messages">
                     {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: green;">{{ message }}</li>
+                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: green;">{{ message }}</p>
                     {% endfor %}
                 </ul>
                 {% if err_msg %}

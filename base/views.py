@@ -122,27 +122,30 @@ def login(request):
             'err_msg_login': "Email is invalid.",
         })
 
-    # flag variable for user name and and password
-    fn, fp = 0, 0
-    for user in Pent_User.objects.all():
-        if user.email == email:
-            pu = Pent_User.objects.get(email=email)
-            if pu.ban == True:
-                return render(request, "login.html", {
-                    'err_msg_login': "User banned by Administrator. Contact Owner.",
-                })
-            fn = 1
-            if user.passwd == pwd:
-                fp = 1
+    if len(Pent_User.objects.all()) > 0:
+        # flag variable for user name and and password
+        fn, fp = 0, 0
+        for user in Pent_User.objects.all():
+            if user.email == email:
+                pu = Pent_User.objects.get(email=email)
+                if pu.ban == True:
+                    return render(request, "login.html", {
+                        'err_msg_login': "User banned by Administrator. Contact Owner.",
+                    })
+                fn = 1
+                if user.passwd == pwd:
+                    fp = 1
 
-        if fn == 0:
-            error_message = "Email Incorrect. Try again."
-        elif fp == 0:
-            error_message = "Password Incorrect. Try again."
-        else :
-            request.session['user_id'] = user.id
-            request.session['email'] = user.email
-            return render(request, "user_ui.html", {'fname': user.first_name})
+            if fn == 0:
+                error_message = "Email Incorrect. Try again."
+            elif fp == 0:
+                error_message = "Password Incorrect. Try again."
+            else :
+                request.session['user_id'] = user.id
+                request.session['email'] = user.email
+                return render(request, "user_ui.html", {'fname': user.first_name})
+    else:
+        error_message = "User does not exist."
 
     return render(request, "login.html", {'err_msg_login': error_message })
 
