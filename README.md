@@ -28,12 +28,15 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 * Download unofficial pdf of test details
 * View enquiry information
 
-**User Interface**
+**User Interface :**
 
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_login.png)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_register.png)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
-
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_resetpass.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_dashboard.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_testpage.png)
+![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_PrintTest.gif)
 
 ### Manager Side
 
@@ -44,7 +47,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 * Ban a user
 * Download test details as PDF
 
-**User Interface**
+**User Interface :**
 
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_login.png)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_register.png)
