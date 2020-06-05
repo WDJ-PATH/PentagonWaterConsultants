@@ -2,6 +2,7 @@
 A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &amp; Water Supply Consultancy Services
 
 ## Tools & Packages Used
+
 ![](https://img.shields.io/badge/1.-python--v3.6-blue)
 ![](https://img.shields.io/badge/2.-django--v3.0.3-yellow)
 ![](https://img.shields.io/badge/3.-PostgreSQL-success)
@@ -10,6 +11,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 ![](https://img.shields.io/badge/6.-reportlab--v3.5.42-blueviolet)
 
 **Others**
+
 ![](https://img.shields.io/badge/1.-HTML-critical)
 ![](https://img.shields.io/badge/2.-CSS-blue)
 ![](https://img.shields.io/badge/3.-Bootstrap--v4.5.0-success)
