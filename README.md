@@ -48,7 +48,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ## :star2:User Interface
 
-**_User :_**
+* **_User :_**
 
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_home.gif)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/u_PrintTest.gif)
@@ -62,7 +62,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ***
 
-**_Manager :_**
+* **_Manager :_**
 
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_login.png)
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_register.png)
