@@ -3,7 +3,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 **Want to report a bug? Raise an issue on this repo.**
 
-## Tools & Packages Used
+## :star2:Tools & Packages Used
 
 ![](https://img.shields.io/badge/1.-python--v3.6-blue)
 ![](https://img.shields.io/badge/2.-django--v3.0.3-yellow)
@@ -20,7 +20,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 ![](https://img.shields.io/badge/4.-pyCharmIDE-inactive)
 
 
-## Features
+## :star2:Features
 
 ### User Side
 
@@ -46,7 +46,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 * User passwords can only be changed using a security code provided at the time of account creation.
 
 
-## User Interface
+## :star2:User Interface
 
 **:red_circle: User :**
 
