@@ -64,4 +64,6 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 ![](https://github.com/WDJ-PATH/PentagonWaterConsultants/blob/master/PWC_UserScreens/m_banuser.png)
 
 ***
-<center>Made with :heart: | All rights reserved.</center>
+<p align="center">
+    Made with :heart: | All rights reserved.
+</p>
