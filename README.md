@@ -41,7 +41,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 * Download test details as PDF
 
 ### Security 
-* Highly Secure DB storage : All passwords & sensitive information of users are hashed with md5 hashing using the highly efficient hashlib library of python.
+* Highly Secure DB storage : All passwords & sensitive information of users & managers are hashed with md5 hashing using the highly efficient hashlib library of python.
     * Not even the DB admin can view it. :sparkles:
 * User passwords can only be changed using a security code provided at the time of account creation.
 
