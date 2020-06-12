@@ -9,7 +9,7 @@
 
 {% load static %}
 <link href="{% static 'styles/register.css' %}" rel="stylesheet">
-<body>
+<body background="{% static 'images/bg-home.jpg' %}">
      <nav class="navbar navbar-light" style="background-color: #135375;">
         <div class="container-fluid">
             <h1 class="text-white">Pentagon Water Consultants</h1>
@@ -24,8 +24,8 @@
     </nav>
 
 
-    <div class="wrapper fadeInDown">
-      <div id="formContent" >
+    <div class="wrapper fadeInDown" style="padding-top: 0px; padding-bottom: 10rem;">
+      <div id="formContent">
         <h2>Login To Manager account</h2>
         <!-- Login Form -->
         <form method="post" action="loggedin" class="pt-3">

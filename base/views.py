@@ -291,7 +291,7 @@ def print_data_unofficial(request, test_id):
     p.drawCentredString(300, 780, title)
     p.setFont('Times-Roman', 12)
     p.setFillColorRGB(0, 0, 0)
-    p.drawCentredString(300, 755, 'Near Passport Sevakendra')
+    p.drawCentredString(300, 755, 'Near Passport Seva Kendra')
     p.drawCentredString(300, 740, 'Payyanur . 670307 . Kerala')
     p.setFont('Times-Italic', 10)
     p.drawCentredString(90, 710, 'pentagonwaters@gmail.com')

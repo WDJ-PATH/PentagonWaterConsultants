@@ -260,7 +260,7 @@ def view_user(request):
         search_ph = Pent_User.objects.filter(Q(phone__contains=search_p))
         if search_n:
             sn = search_name(search_n)
-            sname = [x[0] for x in sn if x[1] > 60]
+            sname = [x[0] for x in sn if x[1] > 71]
             if len(sname) > 0:
                 sn = []
                 for n in sname:
@@ -340,7 +340,7 @@ def ban_user_by_search(request):
         search_ph = Pent_User.objects.filter(Q(phone__contains=search_p))
         if search_n:
             sn = search_name(search_n)
-            sname = [x[0] for x in sn if x[1] > 60]
+            sname = [x[0] for x in sn if x[1] > 71]
             if len(sname) > 0:
                 sn = []
                 for n in sname:
@@ -452,7 +452,7 @@ def print_data(request, test_id):
     p.drawCentredString(300, 780, title)
     p.setFont('Times-Roman', 12)
     p.setFillColorRGB(0, 0, 0)
-    p.drawCentredString(300, 755, 'Near Passport Sevakendra')
+    p.drawCentredString(300, 755, 'Near Passport Seva Kendra')
     p.drawCentredString(300, 740, 'Payyanur . 670307 . Kerala')
     p.setFont('Times-Italic', 10)
     p.drawCentredString(90, 710, 'pentagonwaters@gmail.com')
