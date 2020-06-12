@@ -35,6 +35,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 1. Register account
 2. Search users and their tests
+    1. Fuzzy Search - (User doesn't need to know the exact spelling of the customer name. This search produces result by checking similarity between words.) | New Feature :gift_heart: 
 3. Add new tests
 4. Update test details
 5. Ban a user
