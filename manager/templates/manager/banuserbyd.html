@@ -1,25 +1,29 @@
 {% extends "manager/banuser.html" %}
 {% block content %}
-<div class="container mr-5 pl-0 pr-3">
-<div id="formContent" style="margin: 70px; padding: 20px; max-width: 1000px;" >
-    <div class="input-group mb-3">
-        <h5>Your Results are :</h5>
-    </div>
-    <div class="input-group mb-3">
-        {% for user in user_obj %}
-            <div class="formContent" style="margin: 45px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
-                <p>{{ user.first_name }}</p>
-                <p>{{ user.phone }}</p>
-                <p>{{ user.place }}</p>
-                <p style="font-size: 12px;">Doing this will ban the user from<br> logging in to their account.</p>
-                <form method="get" action="banned">
-                    {% csrf_token %}
-                    <button type="submit" name="ban" class="btn btn-outline-danger btn-sm mr-sm-2" value="{{ user.id }}">BAN USER</button><br>
-                    <button type="submit" name="unban" class="btn btn-outline-success btn-sm mr-sm-2 mt-2" value="{{ user.id }}">UN-BAN USER</button>
-                </form>
+<div class="d-flex justify-content-center md-form form-sm mt-0">
+    <div id="formContent" style="margin: 70px; max-width: 1000px;" >
+        <div class="input-group mb-3" style="padding: 30px;">
+            <h5>Your Results are :</h5>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for user in user_obj %}
+                    <div class="col-md-4" style="text-align: center;">
+                        <div class="formContent" style="margin: 45px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
+                            <p>{{ user.first_name }}</p>
+                            <p>{{ user.phone }}</p>
+                            <p>{{ user.place }}</p>
+                            <p style="font-size: 12px;">Doing this will ban the user from<br> logging in to their account.</p>
+                            <form method="get" action="banned">
+                                {% csrf_token %}
+                                <button type="submit" name="ban" class="btn btn-outline-danger btn-sm mr-sm-2" value="{{ user.id }}">BAN USER</button><br>
+                                <button type="submit" name="unban" class="btn btn-outline-success btn-sm mr-sm-2 mt-2" value="{{ user.id }}">UN-BAN USER</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}

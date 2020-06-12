@@ -1,21 +1,25 @@
 {% extends "manager/viewuser.html" %}
 {% block content %}
-<div class="container pl-0 pr-2">
-    <div id="formContent" style="margin:50px; max-width: 1000px; padding-left: 65px" >
+<div class="d-flex justify-content-center md-form form-sm mt-0">
+    <div id="formContent" style="max-width: 1000px;" >
         <div class="input-group mb-3" style="padding-top: 30px; padding-left:30px ">
             <h5>Your Results are :</h5>
         </div>
-        <div class="input-group mb-3">
-            {% for user in user_obj %}
-                <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
-                    <p>Name : {{ user.first_name }}</p>
-                    <p>Mobile : {{ user.phone }}</p>
-                    <p>Place : {{ user.place }}</p>
-                    {% for t in user.test_set.all reversed %}
-                        <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
-                    {% endfor %}
-                </div>
-            {% endfor %}
+        <div class="container">
+            <div class="row">
+                {% for user in user_obj %}
+                    <div class="col-md-6" style="text-align: center;">
+                        <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
+                            <p>Name : {{ user.first_name }}</p>
+                            <p>Mobile : {{ user.phone }}</p>
+                            <p>Place : {{ user.place }}</p>
+                            {% for t in user.test_set.all reversed %}
+                                <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>

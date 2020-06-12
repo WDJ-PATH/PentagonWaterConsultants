@@ -1,7 +1,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 {% load static %}
 <link href="{% static 'styles/register.css' %}" rel="stylesheet">
@@ -16,11 +18,11 @@
         </div>
     </nav>
 
-    <div class="container pl-0 pr-5"  style="text-align: center; max-height: available; padding-bottom: 200px;">
+    <div class="container"  style="text-align: center; max-height: available; padding-bottom: 200px;">
         <h2 style="position: center;">View and ban users</h2>
         <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" method="post" action="banuserbypn">
             {% csrf_token %}
-            <div id="formContent" style="margin-left: 50px; margin-right:10px;padding: 20px; max-width: 1000px;" >
+            <div id="formContent" style="margin: 50px;padding: 20px; max-width: 1000px;" >
                 <div class="input-group mb-3">
                     <a href="loggedin" style="padding-bottom: 20px">Go Back To your Dashboard</a>
                 </div>
@@ -44,7 +46,7 @@
             <div class="container" style="">
                 <h6 style="color: gray;">If you don't remember the name or exact number try this :</h6>
             </div>
-            <div class="container" style="margin-left:30px; margin-top: 30px; padding-right: 50px;">
+            <div class="container" style="padding-right: 50px">
                 <input type="submit" class="btn btn-outline-info btn-lg btn-block" value="Search by latest date" />
             </div>
         </form>

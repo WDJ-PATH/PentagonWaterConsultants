@@ -1,36 +1,41 @@
 {% extends "manager/viewuser.html" %}
 {% block content %}
-<div class="container pl-0 pr-2">
-<div id="formContent" style="margin:50px; max-width: 1000px; padding-left: 65px" >
-    <div class="input-group mb-3" style="padding-top: 30px; padding-left:30px" >
-        <h5>Your Results are :  {% if sn %}
-                                    In the order of best match first..<br>
-                                {% endif %}
-        </h5>
-    </div>
-    <div class="input-group mb-3">
-
-        {% for u in sn %}
-            <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
-                <p>Name : {{ u.first_name }}</p>
-                <p>Mobile : {{ u.phone }}</p>
-                <p>Place : {{ u.place }}</p>
-                {% for t in u.test_set.all reversed %}
-                    <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
-                {% endfor %}
+<div class="d-flex justify-content-center md-form form-sm mt-0">
+    <div id="formContent" style="margin:50px; max-width: 1000px;" >
+        <div class="input-group mb-3" style="padding-top: 30px; padding-left:30px" >
+            <h5>Your Results are :  {% if sn %}
+                                        In the order of best match first..<br>
+                                    {% endif %}
+            </h5>
+        </div>
+        <div class="container">
+            <div class="row">
+            {% for u in sn %}
+                <div class="col-md-6" style="text-align: center;">
+                    <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
+                        <p>Name : {{ u.first_name }}</p>
+                        <p>Mobile : {{ u.phone }}</p>
+                        <p>Place : {{ u.place }}</p>
+                        {% for t in u.test_set.all reversed %}
+                            <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            {% for u in s_np %}
+                <div class="col-md-6" style="text-align: center;">
+                    <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
+                        <p>Name : {{ u.first_name }}</p>
+                        <p>Mobile : {{ u.phone }}</p>
+                        <p>Place : {{ u.place }}</p>
+                        {% for t in u.test_set.all reversed %}
+                            <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
             </div>
-        {% endfor %}
-        {% for u in s_np %}
-            <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
-                <p>Name : {{ u.first_name }}</p>
-                <p>Mobile : {{ u.phone }}</p>
-                <p>Place : {{ u.place }}</p>
-                {% for t in u.test_set.all reversed %}
-                    <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
-                {% endfor %}
-            </div>
-        {% endfor %}
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}
