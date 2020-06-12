@@ -3,10 +3,13 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 {% load static %}
 <link href="{% static 'styles/register.css' %}" rel="stylesheet">
-<body background="{% static 'images/bg-home.jpg' %}", style="height: 100%;">
+<body background="{% static 'images/bg-home.jpg' %}">
      <nav class="navbar navbar-light" style="background-color: #135375;">
         <div class="container-fluid">
             <h1 class="text-white">Pentagon Water Consultants</h1>
@@ -21,7 +24,7 @@
     </nav>
 
 
-    <div class="wrapper fadeInDown" style="padding-bottom: 400px;">
+    <div class="wrapper fadeInDown">
       <div id="formContent" >
         <h2>Login To Manager account</h2>
         <!-- Login Form -->
@@ -39,8 +42,7 @@
         </div>
     </div>
 
-
-    <footer class="py-4" style="background-color: #135375; position: fixed;">
+    <footer class="py-4" style="background-color: #135375; position: relative; height: 6rem;">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
         </div>

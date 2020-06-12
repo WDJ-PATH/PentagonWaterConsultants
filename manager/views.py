@@ -13,7 +13,7 @@ from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 import textwrap
-
+from fuzzywuzzy import process
 
 def reg_index(request):
     return render(request, 'manager/m_register.html')
@@ -232,6 +232,13 @@ def view_user_index(request):
 
     return render(request, 'manager/viewuser.html', context)
 
+def search_name(q, limit=5):
+    choices = []
+    for u in Pent_User.objects.all():
+        choices.append(u.first_name)
+    results = process.extract(q, choices, limit=limit)
+    return results
+
 
 def view_user(request):
     context = {
@@ -249,9 +256,21 @@ def view_user(request):
     try:
         search_p = request.POST['phone']
         search_n = request.POST['fname']
-        search_name_ph = Pent_User.objects.filter(Q(first_name__contains=search_n), Q(phone__contains=search_p))
-        if len(search_name_ph)>0:
-            context['s_np'] = search_name_ph
+
+        search_ph = Pent_User.objects.filter(Q(phone__contains=search_p))
+        if search_n:
+            sn = search_name(search_n)
+            sname = [x[0] for x in sn if x[1] > 60]
+            if len(sname) > 0:
+                sn = []
+                for n in sname:
+                    sn.append(Pent_User.objects.get(first_name=n))
+                context['sn'] = sn
+                context['succ_msg_viewuser'] = "Search results found."
+                return render(request, 'manager/userlistsearch.html', context)
+        if search_p:
+            print("+")
+            context['s_np'] = search_ph
             context['succ_msg_viewuser'] = "Search results found."
             return render(request, 'manager/userlistsearch.html', context)
         else:
@@ -287,6 +306,13 @@ def view_user_bydate(request):
 
 
 def ban_user_index(request):
+    try:
+        if request.session['manager_id'] is None:
+            return render(request, 'manager/m_login.html', {
+                'err_msg_login': "You have to be logged in to do this."
+            })
+    except:
+        pass
     context = {
         'm_id': request.session['manager_id'],
         'm_uname': request.session['manager_uname']
@@ -311,9 +337,19 @@ def ban_user_by_search(request):
     try:
         search_p = request.POST['phone']
         search_n = request.POST['fname']
-        search_name_ph = Pent_User.objects.filter(Q(first_name__contains=search_n), Q(phone__contains=search_p))
-        if len(search_name_ph) > 0:
-            context['s_np'] = search_name_ph
+        search_ph = Pent_User.objects.filter(Q(phone__contains=search_p))
+        if search_n:
+            sn = search_name(search_n)
+            sname = [x[0] for x in sn if x[1] > 60]
+            if len(sname) > 0:
+                sn = []
+                for n in sname:
+                    sn.append(Pent_User.objects.get(first_name=n))
+                context['sn'] = sn
+                context['succ_msg_viewuser'] = "Search results found."
+                return render(request, 'manager/banuserbypn.html', context)
+        if search_p:
+            context['s_np'] = search_ph
             context['succ_msg_viewuser'] = "Search results found."
             return render(request, 'manager/banuserbypn.html', context)
         else:

@@ -13,6 +13,7 @@
                 <p>{{ user.place }}</p>
                 <p style="font-size: 12px;">Doing this will ban the user from<br> logging in to their account.</p>
                 <form method="get" action="banned">
+                    {% csrf_token %}
                     <button type="submit" name="ban" class="btn btn-outline-danger btn-sm mr-sm-2" value="{{ user.id }}">BAN USER</button><br>
                     <button type="submit" name="unban" class="btn btn-outline-success btn-sm mr-sm-2 mt-2" value="{{ user.id }}">UN-BAN USER</button>
                 </form>
