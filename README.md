@@ -75,5 +75,5 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ***
 <p align="center">
-    Made with :heart: | All rights reserved.
+    Made with :heart:   | All rights reserved.
 </p>
