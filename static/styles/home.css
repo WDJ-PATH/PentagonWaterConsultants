@@ -1,3 +1,9 @@
+body {
+  font-family: "Poppins", sans-serif;
+  height: auto;
+  background-color: #f6f6f6;
+}
+
 .py-5 {
     opacity: 0.7;
 }
@@ -64,5 +70,8 @@ h2 {
     align-items: baseline;
     flex-wrap: wrap;
     opacity: 90%;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+
 }
 
