@@ -64,14 +64,24 @@ h2 {
      display: flex;
     margin-top: 110px;
     height: 400px;
-    background: white;
+    background: #f9fbfd;
     border-radius: 10px;
     justify-content: center;
     align-items: baseline;
     flex-wrap: wrap;
-    opacity: 90%;
+    opacity: 98%;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 
 }
 
+.btn-outline-info{
+    color: #135375;
+    border-color: #135375;
+}
+
+.btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info:active, .btn-outline-info.active, .open>.dropdown-toggle.btn-outline-info, .btn-primary:active:focus {
+    color: #fff;
+    background-color: #135375;
+    border-color: #135375; /*set the color you want here*/
+}
