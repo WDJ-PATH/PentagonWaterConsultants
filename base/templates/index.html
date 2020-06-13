@@ -7,22 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
+{% load static %}
 <nav class="navbar navbar-light" style="background-color: #135375;">
     <div class="container-fluid">
-        <a href="/"><h1 class="text-white">Pentagon Water Consultants</h1></a>
+        <a href="/"><img class="img-fluid" src="{% static 'images/logo.png' %}" alt=""
+         style="filter: invert(98%) sepia(0%) saturate(0%) hue-rotate(23deg) brightness(135%) contrast(100%); width: 500px;"></a>
 
         <form class="form-inline pt-3">
-            <a class="btn btn-outline-light mr-sm-2  " href="login">Login</a>
+            <a class="btn btn-outline-light mr-sm-2 mr-2" href="login">Login</a>
             <a class="btn btn-outline-light" href="register">Sign Up</a>
         </form>
     </div>
 </nav>
-{% load static %}
+
 <link href="{% static 'styles/home.css' %}" rel="stylesheet">
 <body>
   <!-- Header - set the background image for the header in the line below -->
-  <header class="py-5 bg-image-full" style="background-image: url('{% static "images/bg-home-min.jpg" %}'); background-size: 100%;">
-    <img class="img-fluid d-block mx-auto" height="200" width="450" src="{% static 'images/PWC_logo.png' %}" alt="">
+  <header class="py-5 bg-image-full " style="background-image: url('{% static "images/bg-home-min.jpg" %}'); background-size: 100%; height:30vh; background-repeat: no-repeat;">
+
   </header>
 
   <!-- Content section -->
@@ -53,8 +55,7 @@
       <ul>
           <li>Email : pentagonwaters@gmail.com</li>
           <li>Phone : +91 8086654684</li>
-          <li>Consultant : Raghuprasad PK, M.E(Environmental Engineering)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Former Chief Engineer, Kerala Water Authority.</li>
+          <li>Consultant : Raghuprasad PK, M.E(Environmental Engineering) , Former Chief Engineer, Kerala Water Authority.</li>
       </ul>
     </div>
   </section>

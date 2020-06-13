@@ -6,10 +6,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
+{% load static %}
  <nav class="navbar navbar-light" style="background-color: #135375;">
     <div class="container-fluid">
-        <h1 class="text-white">Pentagon Water Consultants</h1>
+        <img class="img-fluid" src="{% static 'images/logo.png' %}" alt=""
+         style="filter: invert(98%) sepia(0%) saturate(0%) hue-rotate(23deg) brightness(135%) contrast(100%); width: 500px;">
 
         <form class="form-inline ml-auto pt-3 pr-2">
             <p class="pt-2" style="color: white; font-size: 13px">Already Have a manager account ? Login </p>
@@ -19,7 +20,7 @@
         </form>
     </div>
 </nav>
-{% load static %}
+
 <link href="{% static 'styles/register.css' %}" rel="stylesheet">
 
 

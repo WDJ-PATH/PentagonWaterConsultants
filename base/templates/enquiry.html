@@ -2,19 +2,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+{% load static %}
 <nav class="navbar navbar-light" style="background-color: #135375;">
     <div class="container-fluid">
-        <h1 class="text-white">Pentagon Water Consultants</h1>
+        <img class="img-fluid" src="{% static 'images/logo.png' %}" alt=""
+         style="filter: invert(98%) sepia(0%) saturate(0%) hue-rotate(23deg) brightness(135%) contrast(100%); width: 500px;">
 
         <form class="form-inline pt-3">
             <a class="btn btn-outline-light mr-sm-2  " href="loggedout">Sign Out</a>
         </form>
     </div>
 </nav>
-{% load static %}
+
 <link href="{% static 'styles/home.css' %}" rel="stylesheet">
 
-<body style="background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('{% static 'images/dash.png' %}'); background-size:cover;">
+<body style="background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('{% static 'images/dash.jpg' %}'); background-size:cover;">
     <div class="container">
 
         <div class="flex-container">
