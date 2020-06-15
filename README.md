@@ -11,6 +11,8 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 ![](https://img.shields.io/badge/4.-whitenoise--v5.1.0-9cf)
 ![](https://img.shields.io/badge/5.-gunicorn--v20.0.4-orange)
 ![](https://img.shields.io/badge/6.-reportlab--v3.5.42-blueviolet)
+![](https://img.shields.io/badge/7.-fuzzywuzzy--v0.17.0-ff69b4)
+![](https://img.shields.io/badge/8.-xlwt--v1.3.0-yellowgreen)
 
 **Others**
 
