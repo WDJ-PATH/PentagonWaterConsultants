@@ -27,5 +27,8 @@ urlpatterns = [
     path('hidden/userlist', views.view_user, name='userlist'),
     path('hidden/userlistbydate', views.view_user_bydate, name='userlistbydate'),
 
-    path('hidden/<int:test_id>/printdata', views.print_data, name='printdata')
+    path('hidden/<int:test_id>/printdata', views.print_data, name='printdata'),
+
+    path('hidden/testlist', views.test_list, name='testlist'),
+    path('hidden/testexport', views.test_export, name='testexport')
 ]

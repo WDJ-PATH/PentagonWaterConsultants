@@ -23,6 +23,7 @@
                 <a href="printdata" target="_blank" style="padding-left: 10px; margin-right: 10px;">Print Test Data</a>
             </div>
             <p style="text-align: center; color: gray;">Test Details :</p>
+            <p style="color: darkred; padding-bottom: 10px;">IMPORTANT : If test is completed, please download as pdf as soon as possible as the<br> test details might be deleted after this.</p>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Colour</span>
@@ -64,6 +65,12 @@
                 <span class="input-group-text" id="inputGroup-sizing-default">Remarks</span>
               </div>
                 <textarea type="text" name="remarks" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{{ testob.remarks }}" disabled></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Completion Status</span>
+              </div>
+              <input type="number" name="completed" step="0.0001" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="{% if testob.completed == True %} Completed {% else %} No Completed {% endif %}" disabled>
             </div>
         </div>
     </div>

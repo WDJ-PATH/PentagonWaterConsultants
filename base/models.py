@@ -32,6 +32,8 @@ class Test(models.Model):
     hardness = models.FloatField(default=0)
     user = models.ForeignKey(Pent_User, on_delete=models.CASCADE)
     addeddate = models.DateTimeField(default=timezone.now)
+    completiondate = models.DateTimeField(default=timezone.now)
+    completed = models.BooleanField(default=False)
     remarks = models.TextField(default="NA")
 
     def __str__(self):

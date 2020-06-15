@@ -14,6 +14,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 import textwrap
 from fuzzywuzzy import process
+import xlwt
 
 def reg_index(request):
     return render(request, 'manager/m_register.html')
@@ -210,6 +211,13 @@ def update_test(request, test_id):
         testupdate.iron = request.POST['iron']
         testupdate.hardness = request.POST['hardness']
         testupdate.remarks = request.POST['remarks']
+        try:
+            print(request.POST['completed'])
+            testupdate.completed = True if request.POST['completed'] == 'on' else False
+            if request.POST['completed'] == 'on':
+                testupdate.completiondate = timezone.now()
+        except:
+            pass
         testupdate.save()
         context['succ_msg_update'] = "Test Details Added Successfully."
     except:
@@ -231,6 +239,7 @@ def view_user_index(request):
         pass
 
     return render(request, 'manager/viewuser.html', context)
+
 
 def search_name(q, limit=5):
     choices = []
@@ -416,6 +425,121 @@ def ban_user(request):
         pass
 
     return render(request, 'manager/banuser.html', context)
+
+
+def export_as_excel(n, t):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'inline; filename="Test_Data_('+str(timezone.now().day)+'-'+\
+                                      str(timezone.now().month)+'-'+str(timezone.now().year)+').xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Tests')
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    borders = xlwt.Borders()
+    borders.left = 6
+    borders.right = 6
+    # borders.top = 6
+    borders.bottom = 6
+    font_style.borders = borders
+
+    ws.row(0).height = 1000
+    alignment = xlwt.Alignment()
+    alignment.horz = xlwt.Alignment.HORZ_CENTER
+    alignment.vert = xlwt.Alignment.VERT_CENTER
+    font_style.alignment = alignment
+    columns = ['Test Number', 'Test Name', 'Completion Date & Time', 'Colour', 'Smell', 'pH', 'TDS', 'Iron', 'Hardness', 'Test Submitted Date & Time', ]
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+    alignment = xlwt.Alignment()
+    alignment.horz = xlwt.Alignment.HORZ_CENTER
+    alignment.vert = xlwt.Alignment.VERT_CENTER
+
+    font_style = xlwt.easyxf('borders:left 6, right 6, top 3, bottom 3;')
+
+    font_style.alignment = alignment
+
+    rows = t.values_list('id', 'user', 'completiondate', 'colour', 'smell', 'ph', 'tds', 'iron', 'hardness', 'addeddate')
+    for row in rows:
+        row_num += 1
+        ws.row(row_num).height = 400
+        for col_num in range(len(row)):
+            if col_num == 0:
+                ws.col(col_num).width = 256 * (len(str(row[col_num])) + 20)
+                ws.write(row_num, col_num, row_num, font_style)
+            else:
+                if isinstance(row[col_num], int):
+                    ws.col(col_num).width = 256 * (len(str(row[col_num])) + 35)
+                    ws.write(row_num, col_num, Pent_User.objects.get(pk=row[col_num]).first_name+"_"+Pent_User.objects.get(pk=row[col_num]).phone+"_"+Pent_User.objects.get(pk=row[col_num]).place, font_style)
+                elif str(type(row[col_num])) == "<class 'datetime.datetime'>":
+                    ws.col(col_num).width = 256 * (len(str(row[col_num])) + 10)
+                    ws.write(row_num, col_num, str(row[col_num].day)+"/"+str(row[col_num].month)+"/"+
+                                               str(row[col_num].year)+", "+str(row[col_num].hour)+":"+
+                                                "0"+str(row[col_num].minute) if len(str(row[col_num].minute))<=1 else str(row[col_num].day)+"/"+str(row[col_num].month)+"/"+
+                                               str(row[col_num].year)+", "+str(row[col_num].hour)+":"+str(row[col_num].minute), font_style)
+                else:
+                    ws.col(col_num).width = 256 * (len(str(row[col_num])) + 30)
+                    ws.write(row_num, col_num, row[col_num], font_style)
+    wb.save(response)
+    return response
+
+
+def test_list(request):
+    context = {
+        'm_id': request.session['manager_id'],
+        'm_uname': request.session['manager_uname']
+    }
+    try:
+        if request.session['manager_id'] is None:
+            return render(request, 'manager/m_login.html', {
+                'err_msg_login': "You have to be logged in to do this."
+            })
+    except:
+        pass
+
+    tests_completed = Test.objects.filter(completed=True)
+    context['t_comp'] = tests_completed
+    if len(tests_completed)>0:
+        return render(request, 'manager/testexport.html', context)
+    else:
+        context['err_msg'] = "No Tests that are having completed status."
+        return render(request, 'manager/testexport.html', context)
+
+
+def test_export(request):
+    tests = int(request.GET['numoftests'])
+    tests_completed = Test.objects.filter(completed=True)[:tests]
+    try:
+        if request.GET['export'] == "Export":
+            return export_as_excel(tests, tests_completed)
+    except:
+        pass
+
+    try:
+        if request.GET['delete'] == "Delete":
+            for tc in tests_completed:
+                tc.delete()
+            t_comp = Test.objects.filter(completed=True)
+            return render(request, 'manager/testexport.html', {
+                'succ_msg': "Tests Deleted Successfully.",
+                't_comp': t_comp
+            })
+    except:
+        pass
+
+    t_comp = Test.objects.filter(completed=True)
+    return render(request, 'manager/testexport.html', {
+        'err_msg': "Some error has occured.",
+        't_comp': t_comp
+    })
 
 
 def print_data(request, test_id):

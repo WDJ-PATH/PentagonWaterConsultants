@@ -7,6 +7,7 @@
         </div>
         <div class="container">
             <div class="row">
+                <p style="margin: auto; color: #135375">If no tests are shown under a users card, then either the tests might be having<br> completed status or the user must not have any tests.</p>
                 {% for user in user_obj %}
                     <div class="col-md-6" style="text-align: center;">
                         <div class="formContent" style="margin: 40px; padding: 15px; max-width: 1000px; background-color: #edf7fd; border-radius: 20px; -webkit-box-shadow: 0 10px 6px -6px #cccccc;">
@@ -14,7 +15,9 @@
                             <p>Mobile : {{ user.phone }}</p>
                             <p>Place : {{ user.place }}</p>
                             {% for t in user.test_set.all reversed %}
-                                <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
+                                {% if t.completed == False %}
+                                    <p>Test Date : {{ t.addeddate }} <br><a href="{{t.id}}/updatetest">View Test</a></p>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>

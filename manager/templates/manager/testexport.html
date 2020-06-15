@@ -1,0 +1,101 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% load static %}
+<link href="{% static 'styles/register.css' %}" rel="stylesheet">
+
+<body style="background-image: none">
+     <nav class="navbar navbar-light" style="background-color: #135375;">
+        <div class="container-fluid">
+            <img class="img-fluid" src="{% static 'images/logo.png' %}" alt=""
+         style="filter: invert(98%) sepia(0%) saturate(0%) hue-rotate(23deg) brightness(135%) contrast(100%); width: 500px;">
+
+            <form class="form-inline pt-3">
+                <a class="btn btn-outline-light mr-sm-2  " href="loggedout">Sign Out</a>
+            </form>
+        </div>
+    </nav>
+
+     <div class="container" style="text-align: center">
+         <h2 style="padding: 20px">View completed tests, export and delete</h2>
+     </div>
+    <div class="container-fluid" style="padding-bottom: 150px;">
+         <div id="formContent" style="margin: auto; padding: 20px; max-width: 1600px;">
+            <div class="input-group mb-3">
+                <a href="loggedin" style="padding-bottom: 20px; padding-right: 10px;">Go Back To your Dashboard</a>
+            </div>
+            {% if succ_msg %}
+                <p style="color: green">{{ succ_msg }}</p>
+            {% elif err_msg %}
+                <p style="color: red"> {{ err_msg }} </p>
+            {% endif %}
+            <form method="get" action="testexport">
+                <div class="form-group">
+                    <div class="container">
+                        <label for="formControlRange" style="color: gray;">Tests to Export/Delete <br> Range : 0-100</label>
+                        <input name="numoftests" type="range" min="0" max="100" value="0" class="form-control-range" id="myRange">
+                        <p style="color: gray; padding-top: 10px;">Number of tests: <span id="demo"></span></p>
+                    </div>
+                    <br>
+                    <input name="export" class="btn btn-primary" type="submit" value="Export">
+                    <input name="delete" class="btn btn-primary" type="submit" value="Delete">
+                </div>
+            </form>
+
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Test Name</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Completion Date & Time</th>
+                            <th scope="col">Colour</th>
+                            <th scope="col">Smell</th>
+                            <th scope="col">Ph</th>
+                            <th scope="col">TDS</th>
+                            <th scope="col">Iron</th>
+                            <th scope="col">Hardness</th>
+                            <th scope="col">Test Submitted Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for t in t_comp %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ t.user.first_name|add:"_"|add:t.user.phone }}</td>
+                            <td>{{ t.user.place }}</td>
+                            <td>{{ t.completiondate }}</td>
+                            <td>{{ t.colour }}</td>
+                            <td>{{ t.smell }}</td>
+                            <td>{{ t.ph }}</td>
+                            <td>{{ t.tds }}</td>
+                            <td>{{ t.iron }}</td>
+                            <td>{{ t.hardness }}</td>
+                            <td>{{ t.addeddate }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+         </div>
+    </div>
+    <footer class="py-4" style="background-color: #135375; position: fixed;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © PWC 2020</p>
+        </div>
+    </footer>
+
+    <script>
+        let slider = document.getElementById("myRange");
+        let output = document.getElementById("demo");
+        output.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+    </script>
+</body>
