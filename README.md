@@ -22,6 +22,17 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ## :star2: Features
 
+### Manager Side
+
+1. Register account
+2. Search users and their tests
+    1. Fuzzy Search - (User doesn't need to know the exact spelling of the customer name. This search produces result by checking similarity between words.) | New Feature :gift_heart: 
+3. Add new tests
+4. Update test details
+5. Export Completed Tests 100 at a time to an excel sheet(.xls file), and delete those tests from the DB. | New Feature :gift_heart:  
+6. Ban a user
+7. Download test details as PDF
+
 ### Customer Side
 
 1. Register account
@@ -31,15 +42,6 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 5. Download unofficial PDF of test details
 6. View enquiry information
 
-### Manager Side
-
-1. Register account
-2. Search users and their tests
-    1. Fuzzy Search - (User doesn't need to know the exact spelling of the customer name. This search produces result by checking similarity between words.) | New Feature :gift_heart: 
-3. Add new tests
-4. Update test details
-5. Ban a user
-6. Download test details as PDF
 
 ### Security 
 * Highly Secure DB storage : All passwords & sensitive information of users & managers are hashed with md5 hashing using the highly efficient hashlib library of python.
