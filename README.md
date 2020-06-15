@@ -22,7 +22,7 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ## :star2: Features
 
-### User Side
+### Customer Side
 
 1. Register account
 2. Reset Password
