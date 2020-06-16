@@ -24,6 +24,8 @@ A webpage for PENTAGON WATER CONSULTANTS - a Service Provider of Waste water &am
 
 ## :star2: &nbsp;&nbsp;Features
 
+Responsive UI optimised for mobile & desktop users.
+
 ### Manager Side
 
 1. Register account
