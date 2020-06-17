@@ -22,4 +22,3 @@ class Manager_Acc(models.Model):
 class Manager_Code(models.Model):
     code = models.CharField(max_length=200)
 
-#aswin - newhorizon1
