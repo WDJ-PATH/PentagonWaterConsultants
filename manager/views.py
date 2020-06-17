@@ -145,6 +145,8 @@ def add_test(request):
         pass
     try:
         fname = request.POST['fname']
+        if request.POST['lname']:
+            lname = request.POST['lname']
         phone = request.POST['phone']
         cphone = request.POST['cphone']
         place = request.POST['place']
@@ -155,6 +157,14 @@ def add_test(request):
         return render(request, "manager/addnewtest.html", {
             'err_msg_addtest': "First name should have the first letter capitalised.",
         })
+    try:
+        if lname[0].islower():
+            return render(request, "manager/addnewtest.html", {
+                'err_msg_addtest': "Last name should have the first letter capitalised.",
+            })
+    except:
+        pass
+
     if len(str(phone)) != 10:
         return render(request, "manager/addnewtest.html", {
             'err_msg_addtest': "Phone Number should be of length 10.",
@@ -177,8 +187,10 @@ def add_test(request):
                 'm_id': request.session['manager_id'],
                 'm_uname': request.session['manager_uname']
             })
-
-    u1 = Pent_User.objects.create(first_name=fname, phone=phone, place=place)
+    if request.POST['lname']:
+        u1 = Pent_User.objects.create(first_name=fname, last_name=lname, phone=phone, place=place)
+    else:
+        u1 = Pent_User.objects.create(first_name=fname, phone=phone, place=place)
     u1.test_set.create(user=u1)
 
     return render(request, 'manager/addnewtest.html', {
@@ -592,55 +604,60 @@ def print_data(request, test_id):
     p.line(20, 720, 575, 720)  # above email and phone
 
     # Box Report Borders
-    p.line(20, 570, 575, 570)
-    p.line(20, 545, 575, 545)
-    p.line(20, 520, 575, 520)
-    p.line(20, 495, 575, 495)
-    p.line(20, 470, 575, 470)
-    p.line(20, 445, 575, 445)
-    p.line(20, 418, 575, 418)
+    p.line(20, 550, 575, 550)
+    p.line(20, 525, 575, 525)
+    p.line(20, 500, 575, 500)
+    p.line(20, 475, 575, 475)
+    p.line(20, 450, 575, 450)
+    p.line(20, 425, 575, 425)
+    p.line(20, 398, 575, 398)
     # Box Report
     p.setFont('Times-Bold', 18)
     p.drawCentredString(297, 670, 'Indicative Report of Water Quality')
     p.setFont('Times-Roman', 14)
-    p.drawCentredString(297, 640, 'Customer Name : '+testpdf.user.first_name)
+
+    if(testpdf.user.last_name != "NA"):
+        p.drawCentredString(297, 640, 'Customer Name : '+testpdf.user.first_name+' '+testpdf.user.last_name)
+    else:
+        p.drawCentredString(297, 640, 'Customer Name : ' + testpdf.user.first_name)
     p.drawCentredString(297, 620, 'Customer Mobile : ' + testpdf.user.phone)
+    p.drawCentredString(297, 600, 'Customer Place : ' + testpdf.user.place)
 
-    p.drawString(50, 550, '1. Colour')
-    p.drawCentredString(220, 550, ' : ')
-    p.drawString(230, 550, testpdf.colour)
+    p.drawString(50, 530, '1. Colour')
+    p.drawCentredString(220, 530, ' : ')
+    p.drawString(230, 530, testpdf.colour)
 
-    p.drawString(50, 525, '2. Smell')
-    p.drawCentredString(220, 525, ' : ')
-    p.drawString(230, 525, testpdf.smell)
+    p.drawString(50, 505, '2. Smell')
+    p.drawCentredString(220, 505, ' : ')
+    p.drawString(230, 505, testpdf.smell)
 
-    p.drawString(50, 500, '3. pH')  # + ' (Acceptable limit : 6.5 - 8.5)')
-    p.drawString(230, 500, str(testpdf.ph))
+    p.drawString(50, 480, '3. pH')  # + ' (Acceptable limit : 6.5 - 8.5)')
+    p.drawString(230, 480, str(testpdf.ph))
     p.setFont('Times-Roman', 8)
-    p.drawString(460, 500, '..Acceptable limit : 6.5 - 8.5')
+    p.drawString(460, 480, '..Acceptable limit : 6.5 - 8.5')
     p.setFont('Times-Roman', 14)
-    p.drawCentredString(220, 500, ' : ')
+    p.drawCentredString(220, 480, ' : ')
 
-    p.drawString(50, 475, '4. TDS (mg/l)')  # + str(testpdf.tds) + ' (Acceptable limit : 500)')
-    p.drawString(230, 475, str(testpdf.tds))
+    p.drawString(50, 455, '4. TDS (mg/l)')  # + str(testpdf.tds) + ' (Acceptable limit : 500)')
+    p.drawString(230, 455, str(testpdf.tds))
     p.setFont('Times-Roman', 8)
-    p.drawString(460, 475, '..Acceptable limit : 500')
+    p.drawString(460, 455, '..Acceptable limit : 500')
     p.setFont('Times-Roman', 14)
-    p.drawCentredString(220, 475, ' : ')
+    p.drawCentredString(220, 455, ' : ')
 
-    p.drawString(50, 450, '5. Iron (mg/l)')  # + str(testpdf.iron) + ' (Acceptable limit : 0.3)')
-    p.drawString(230, 450, str(testpdf.iron))
+    p.drawString(50, 430, '5. Iron (mg/l)')  # + str(testpdf.iron) + ' (Acceptable limit : 0.3)')
+    p.drawString(230, 430, str(testpdf.iron))
     p.setFont('Times-Roman', 8)
-    p.drawString(460, 450, '..Acceptable limit : 0.3')
+    p.drawString(460, 430, '..Acceptable limit : 0.3')
     p.setFont('Times-Roman', 14)
-    p.drawCentredString(220, 450, ' : ')
+    p.drawCentredString(220, 430, ' : ')
 
-    p.drawString(50, 425, '6. Total Hardness (mg/l)')  # + str(testpdf.hardness) + ' (Acceptable limit : 200)')
-    p.drawString(230, 425, str(testpdf.hardness))
+    p.drawString(50, 405, '6. Total Hardness (mg/l)')  # + str(testpdf.hardness) + ' (Acceptable limit : 200)')
+    p.drawString(230, 405, str(testpdf.hardness))
     p.setFont('Times-Roman', 8)
-    p.drawString(460, 425, '..Acceptable limit : 200')
+    p.drawString(460, 405, '..Acceptable limit : 200')
     p.setFont('Times-Roman', 14)
-    p.drawCentredString(220, 425, ' : ')
+    p.drawCentredString(220, 405, ' : ')
 
     # Remarks
     p.setFont('Times-Bold', 14)

@@ -39,10 +39,17 @@
                     <p style="color: red;">{{ err_msg_reset }}</p>
                 {% endif %}
               <p style="text-align: center; font-size:12px; color: darkred; padding-left:40px; padding-right: 40px;">IMPORTANT: Don't share your security code with anyone.</p>
-              <input type="text" name="email" class="fadeIn first" placeholder="Enter Your Email" autocomplete="off" required/>
-              <input type="password" name="securitycode" class="fadeIn first" placeholder="Enter Your Security Code" autocomplete="off" required/>
-              <input type="password" name="pass" class="fadeIn second" placeholder="Enter New Password" autocomplete="off" required/>
-              <input type="password" name="cpw" class="fadeIn third" placeholder="Enter Password Again" required/>
+              <input type="text" name="email" class="fadeIn first" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                     title="Please enter a valid email id. eg: abc@xyz.qer"
+                     placeholder="Enter Your Email" autocomplete="off" required/>
+              <input type="password" name="securitycode" pattern="[0-9]{8}$" title="Security Code must contain 8 digits."
+                     class="fadeIn first" placeholder="Enter Your Security Code" autocomplete="off" required/>
+              <input type="password" name="pass" class="fadeIn second" pattern="^(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
+                     title="Must contain at least one number and 8 or more characters"
+                     placeholder="Enter New Password" autocomplete="off" required/>
+              <input type="password" name="cpw" class="fadeIn third" pattern="^(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
+                     title="Must contain at least one number and 8 or more characters"
+                     placeholder="Enter Password Again" required/>
                 <div id="formFooter" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
                    <input type="submit" class="fadeIn fourth" value="Reset">
                 </div>

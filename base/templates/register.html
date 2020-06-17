@@ -40,15 +40,26 @@
                     {% endfor %}
                 </ul>
                 {% if err_msg %}
-                    <p style="color: red">{{ err_msg }}</p>
+                    <p style="color: red; padding: 20px;">{{ err_msg }}</p>
                 {% endif %}
                 <p style="text-align: center; font-size:12px; color: darkred; padding-left:40px; padding-right: 40px;">IMPORTANT: Please provide the MOBILE NUMBER given during test water submission.</p>
-                <input type="text" name="email" class="fadeIn first" placeholder="Enter Your Email" autocomplete="off" required/>
-                <input type="text" name="firstname" class="fadeIn second" placeholder="Enter Your First Name" autocomplete="off" required/>
-                <input type="text" name="lastname" class="fadeIn second" placeholder="Enter Your Last Name" autocomplete="off" required/>
-                <input type="password" name="pass" class="fadeIn third" placeholder="Enter Password" required/>
-                <input type="password" name="cpw" class="fadeIn third" placeholder="Enter Password Again" required/>
-                <input type="number" name="phone" class="fadeIn third" placeholder="Enter Mobile Number" required/>
+                <input type="text" name="email" class="fadeIn first" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                       title="Please enter a valid email id. eg: abc@xyz.qer" placeholder="Enter Your Email" autocomplete="off" required/>
+                <input type="text" name="firstname" class="fadeIn second" pattern="[A-Z][a-z]+"
+                       title="First name should start with capital letter and should not have numbers or special characters"
+                       placeholder="Enter Your First Name" autocomplete="off" required/>
+                <input type="text" name="lastname" class="fadeIn second" pattern="[A-Z][a-z]+"
+                       title="Last name should start with capital letter and should not have numbers or special characters"
+                       placeholder="Enter Your Last Name" autocomplete="off" required/>
+                <input type="password" name="pass" class="fadeIn third" pattern="^(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
+                       title="Must contain at least one number and 8 or more characters"
+                       placeholder="Enter Password" required/>
+                <input type="password" name="cpw" class="fadeIn third" pattern="^(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
+                       title="Must contain at least one number and 8 or more characters"
+                       placeholder="Enter Password Again" required/>
+                <input type="text" name="phone" class="fadeIn third" pattern="[1-9][0-9]{9}$"
+                       title="Must contain 10 digits"
+                       placeholder="Enter Mobile Number" required/>
                 <textarea type="text" name="address" rows="4" class="fadeIn third" cols="33" placeholder="Enter Your Address" required></textarea>
                 <div id="formFooter" style="padding-top: 10px; padding-bottom: 0px; margin-bottom: 0px">
                    <input type="submit" class="fadeIn fourth" value="Sign Up">

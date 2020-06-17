@@ -38,8 +38,11 @@
                         <p style="color: green;">{{ succ_msg_viewuser }}</p>
                     {% endif %}
                 </div>
-                <input class="form-control form-control-sm ml-3 w-75" type="number" name="phone" placeholder="Search for mobile number here if you know it exactly.." aria-label="Search">
-                <input class="form-control form-control-sm ml-3 w-75" type="text" name="fname" placeholder="Search for first name here.." aria-label="Search">
+                <input class="form-control form-control-sm ml-3 w-75" type="text" pattern="[1-9][0-9]{9}$" title="Must contain 10 digits"
+                       name="phone" placeholder="Search for mobile number here if you know it exactly.." aria-label="Search">
+                <input class="form-control form-control-sm ml-3 w-75" type="text" pattern="[A-Za-z]+"
+                       title="Name should not have numbers or special characters"
+                       name="fname" placeholder="Search for first name here.." aria-label="Search">
                 <div class="container" style="margin-top: 30px; padding-right: 70px;">
                     <input type="submit" class="btn btn-outline-info btn-lg btn-block" value="Search" />
                 </div>

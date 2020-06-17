@@ -18,7 +18,7 @@
     </nav>
     <div class="container pr-5"  style="text-align: center; max-height: available; padding-bottom: 200px">
         <h2 style="position: center;">Update Test</h2>
-        <p style="position: center; color: gray; font-size: 14px;">Test ID :{{ testob.id }}<br> User Name : {{ testob.user.first_name }}</p>
+        <p style="position: center; color: gray; font-size: 14px;">Test ID :{{ testob.id }}<br> Customer Name : {{ testob.user.first_name }}{% if testob.user.last_name != "NA" %} {{ testob.user.last_name }}{% endif %}</p>
         <div id="formContent" style="margin: 70px; padding: 20px; max-width: 1000px;">
             <div class="input-group mb-3">
                 <a href="../loggedin" style="padding-bottom: 20px; padding-right: 10px;">Go Back To your Dashboard</a><p style="color: gray;">|</p>
