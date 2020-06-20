@@ -97,6 +97,11 @@ def register(request):
 
 
 def login_index(request):
+    try:
+        if request.session['user_id'] is not None:
+            return render(request, "user_ui.html", {'fname': Pent_User.objects.get(id=request.session['user_id']).first_name})
+    except:
+        pass
     return render(request, 'login.html')
 
 

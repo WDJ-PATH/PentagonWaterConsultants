@@ -82,13 +82,21 @@ def manager_register(request):
 
 
 def login_index(request):
+    try :
+        if request.session['manager_id'] is not None:
+            return render(request, "manager/manager_ui.html", {'m_fname': Manager_Acc.objects.get(id=request.session['manager_id']).username,
+                                                               'm_id': request.session['manager_id']})
+    except:
+        pass
+
     return render(request, 'manager/m_login.html')
 
 
 def manager_login(request):
     try :
         if request.session['manager_id'] is not None:
-            return render(request, "manager/manager_ui.html", {'m_fname': Manager_Acc.objects.get(id=request.session['manager_id']).username})
+            return render(request, "manager/manager_ui.html", {'m_fname': Manager_Acc.objects.get(id=request.session['manager_id']).username,
+                                                               'm_id': request.session['manager_id']})
     except:
         pass
 
@@ -116,7 +124,8 @@ def manager_login(request):
             else :
                 request.session['manager_id'] = manager.id
                 request.session['manager_uname'] = manager.username
-                return render(request, "manager/manager_ui.html", {'m_fname': manager.firstname})
+                return render(request, "manager/manager_ui.html", {'m_fname': manager.firstname,
+                                                                   'm_id': manager.id})
     else:
         error_message = "Manager account does not exist."
 
