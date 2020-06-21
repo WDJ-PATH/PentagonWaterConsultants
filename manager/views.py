@@ -16,6 +16,7 @@ import textwrap
 from fuzzywuzzy import process
 import xlwt
 
+
 def reg_index(request):
     return render(request, 'manager/m_register.html')
 

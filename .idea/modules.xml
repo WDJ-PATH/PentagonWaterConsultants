@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../PentagonWaterConsultants/.idea/pwc_website.iml" filepath="$PROJECT_DIR$/../PentagonWaterConsultants/.idea/pwc_website.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pwc_website.iml" filepath="$PROJECT_DIR$/.idea/pwc_website.iml" />
     </modules>
   </component>
 </project>
